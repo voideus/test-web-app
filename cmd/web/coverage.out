@@ -1,4 +1,8 @@
 mode: set
+webapp/cmd/web/main.go:21.13,30.16 6 0
+webapp/cmd/web/main.go:33.2,45.16 6 0
+webapp/cmd/web/main.go:30.16,32.3 1 0
+webapp/cmd/web/main.go:45.16,47.3 1 0
 webapp/cmd/web/middleware.go:14.67,16.2 1 1
 webapp/cmd/web/middleware.go:18.72,19.71 1 1
 webapp/cmd/web/middleware.go:19.71,24.17 3 1
@@ -16,15 +20,21 @@ webapp/cmd/web/middleware.go:39.16,41.3 1 1
 webapp/cmd/web/middleware.go:44.19,46.3 1 1
 webapp/cmd/web/middleware.go:49.22,51.3 1 1
 webapp/cmd/web/middleware.go:53.18,55.3 1 0
-webapp/cmd/web/routes.go:10.47,28.2 10 1
+webapp/cmd/web/middleware.go:60.62,61.71 1 1
+webapp/cmd/web/middleware.go:61.71,62.47 1 1
+webapp/cmd/web/middleware.go:68.3,68.23 1 1
+webapp/cmd/web/middleware.go:62.47,66.4 3 1
+webapp/cmd/web/routes.go:10.47,22.40 7 1
+webapp/cmd/web/routes.go:28.2,31.12 3 1
+webapp/cmd/web/routes.go:22.40,25.3 2 1
 webapp/cmd/web/session.go:10.39,18.2 6 1
-webapp/cmd/web/db.go:12.42,14.16 2 1
-webapp/cmd/web/db.go:18.2,19.16 2 1
-webapp/cmd/web/db.go:23.2,23.16 1 1
+webapp/cmd/web/db.go:12.42,14.16 2 0
+webapp/cmd/web/db.go:18.2,19.16 2 0
+webapp/cmd/web/db.go:23.2,23.16 1 0
 webapp/cmd/web/db.go:14.16,16.3 1 0
 webapp/cmd/web/db.go:19.16,21.3 1 0
-webapp/cmd/web/db.go:26.56,28.16 2 1
-webapp/cmd/web/db.go:32.2,34.24 2 1
+webapp/cmd/web/db.go:26.56,28.16 2 0
+webapp/cmd/web/db.go:32.2,34.24 2 0
 webapp/cmd/web/db.go:28.16,30.3 1 0
 webapp/cmd/web/forms.go:10.42,12.26 2 1
 webapp/cmd/web/forms.go:15.2,15.22 1 1
@@ -60,7 +70,3 @@ webapp/cmd/web/handlers.go:89.42,93.3 3 1
 webapp/cmd/web/handlers.go:105.94,106.72 1 1
 webapp/cmd/web/handlers.go:110.2,111.13 2 1
 webapp/cmd/web/handlers.go:106.72,108.3 1 1
-webapp/cmd/web/main.go:20.13,29.16 6 0
-webapp/cmd/web/main.go:32.2,44.16 6 0
-webapp/cmd/web/main.go:29.16,31.3 1 0
-webapp/cmd/web/main.go:44.16,46.3 1 0
