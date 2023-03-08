@@ -105,9 +105,9 @@ func (app *application) Login(w http.ResponseWriter, r *http.Request) {
 	_ = app.Session.RenewToken(r.Context())
 
 	// store success message in session
+	app.Session.Put(r.Context(), "flash", "Successfully logged in!")
 
 	// redirect to some other page
-	app.Session.Put(r.Context(), "flash", "Successfully logged in!")
 	http.Redirect(w, r, "/user/profile", http.StatusSeeOther)
 }
 
