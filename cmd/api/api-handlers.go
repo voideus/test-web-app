@@ -7,7 +7,7 @@ import (
 	"time"
 	"webapp/pkg/data"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/golang-jwt/jwt/v4"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -19,6 +19,7 @@ type Credentials struct {
 
 func (app *application) authenticate(w http.ResponseWriter, r *http.Request) {
 	var creds Credentials
+
 	// read a json payload
 	err := app.readJSON(w, r, &creds)
 	if err != nil {
@@ -26,7 +27,7 @@ func (app *application) authenticate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// look up user by email address
+	// look up the user by email address
 	user, err := app.DB.GetUserByEmail(creds.Username)
 	if err != nil {
 		app.errorJSON(w, errors.New("unauthorized"), http.StatusUnauthorized)
@@ -49,7 +50,6 @@ func (app *application) authenticate(w http.ResponseWriter, r *http.Request) {
 
 	// send token to user
 	_ = app.writeJSON(w, http.StatusOK, tokenPairs)
-
 }
 
 func (app *application) refresh(w http.ResponseWriter, r *http.Request) {
@@ -62,16 +62,17 @@ func (app *application) refresh(w http.ResponseWriter, r *http.Request) {
 	refreshToken := r.Form.Get("refresh_token")
 	claims := &Claims{}
 
-	_, err = jwt.ParseWithClaims(refreshToken, claims, func(t *jwt.Token) (interface{}, error) {
+	_, err = jwt.ParseWithClaims(refreshToken, claims, func(token *jwt.Token) (interface{}, error) {
 		return []byte(app.JWTSecret), nil
 	})
+
 	if err != nil {
 		app.errorJSON(w, err, http.StatusBadRequest)
 		return
 	}
 
 	if time.Unix(claims.ExpiresAt.Unix(), 0).Sub(time.Now()) > 30*time.Second {
-		app.errorJSON(w, errors.New("refresh tokens does not need renewal yet"), http.StatusTooEarly)
+		app.errorJSON(w, errors.New("refresh token does not need renewed yet"), http.StatusTooEarly)
 		return
 	}
 
